@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Fizzbuzz without if/else</h1>
+    <script>
+      // array composition
+        const array = Array.from(Array(100).keys()); // returns array 0 to 99
+        const plusOne = number => number + 1; // will be used to correct array to 1 to 100
+        const adjustedArray = array.map(number => plusOne(number)); // returns array 1 to 100
+
+      // fizzbuzz setup
+        const isDivisibleBy5 = number => number % 5 === 0;
+        const isDivisibleBy3 = number => number % 3 === 0;
+        const isDivisibleByBoth = number => isDivisibleBy5(number) && isDivisibleBy3(number);
+
+        const fizzbuzz = array => array.map(number =>
+          isDivisibleByBoth(number) ? 'fizzbuzz' :
+          isDivisibleBy5(number) ? 'buzz' :
+          isDivisibleBy3(number) ? 'fizz' :
+          number
+        )
+
+      //final output
+      console.log(fizzbuzz(adjustedArray).join(" "))
+
+    </script>
+  </body>
+</html>
+<!--
